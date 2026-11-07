@@ -4,6 +4,15 @@
 
 This record describes versioned changes. Release reports retain validation evidence and limits; a fix does not certify every provider or environment.
 
+## 0.6.4 — 2026-11-07
+
+- Replaced the aggregate 4 MiB Codex transport check with incremental per-message framing, a 32 MiB message limit, and intact UTF-8 handling for images and larger responses.
+- Process loss before waiter registration now fails explicitly instead of leaving a task waiting indefinitely.
+- Execution details retain allowlisted failure codes and descriptions. Unknown failures are no longer attributed to OKF or the network without evidence; private error text and stderr are not stored in history.
+- A confirmed terminal transient failure may continue once on the same thread. Authentication, quotas, policies, cancellation, pending decisions, and command/MCP/file-change/image-generation activity in the turn prevent automatic continuation, including completed tools.
+- Fixed early notifications received before turn-start responses and late messages from previous turns.
+- Added transport, recovery, persistence, and disposable-profile Electron rendering regressions.
+
 ## 0.6.3 — 2026-11-06
 
 ### Continuity and memory

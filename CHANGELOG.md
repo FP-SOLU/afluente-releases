@@ -4,6 +4,15 @@
 
 Este registro descreve mudanças entregues por versão. Notas de execução e limites de validação ficam nos relatórios da release; uma correção não implica certificação de todos os provedores ou ambientes.
 
+## 0.6.4 — 2026-11-07
+
+- Corrigido o limite agregado de 4 MiB no transporte Codex: imagens e mensagens grandes válidas agora são enquadradas individualmente, com teto de 32 MiB por mensagem e preservação de UTF-8.
+- A perda do processo antes de registrar a espera termina com erro identificado, sem deixar a tarefa aguardando indefinidamente.
+- Falhas persistem códigos e motivos permitidos em Detalhes da execução; erros desconhecidos não são atribuídos ao OKF ou à rede sem evidência. Texto privado de erros e stderr não são gravados no histórico.
+- Uma falha transitória terminal confirmada pode continuar uma vez na mesma thread. Autenticação, cotas, políticas, cancelamento, decisões pendentes e uso de comandos/MCPs/alterações/geração no turno bloqueiam essa continuação, inclusive se a ferramenta já concluiu.
+- Corrigido o tratamento de mensagens que chegam antes da resposta de início do turno e de respostas tardias de turnos anteriores.
+- Adicionadas regressões de transporte, recuperação, persistência e renderização Electron em perfil descartável.
+
 ## 0.6.3 — 2026-11-06
 
 ### Continuidade e memória

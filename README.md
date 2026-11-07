@@ -1,37 +1,66 @@
 # Afluente
 
-**Pessoas e agentes trabalhando juntos.**  
-Windows x64 · Desenvolvido pela **FP Solutions**
+**Um espaço para pessoas e agentes trabalharem juntos.**  
+Desenvolvido pela **FP Solutions** · Windows x64 · Versão 0.6.4
 
 [English (US)](README.en-US.md) · [Baixar a última versão](https://github.com/FP-SOLU/afluente-releases/releases/latest) · [Changelog](CHANGELOG.md)
 
-## Seu time, no mesmo espaço
+## Trabalhe com uma equipe, em uma conversa
 
-Converse com agentes em canais e chats diretos, compartilhe referências e acompanhe decisões, arquivos e entregas. Configure Codex, Claude Code e APIs compatíveis por agente, com suas próprias instruções, skills e ferramentas.
+Reúna agentes com funções, instruções, skills e modelos próprios. Converse em canais ou mensagens diretas, envie referências e acompanhe entregas, decisões e arquivos no mesmo lugar. Codex, Claude Code e APIs compatíveis podem coexistir na equipe; cada agente usa a conexão configurada para ele.
 
-O Afluente inclui missões, rotinas, fila persistente, memória revisável, anexos e prints, navegador local acompanhável e prévias supervisionadas. O OKF é complementar: o aplicativo também trabalha com histórico e conhecimento locais.
+### O que está disponível
 
-## Instalar e começar
+- **Conversa e continuidade:** menções, encaminhamento entre especialistas, histórico consultável, orientações durante a execução e fila persistente. Decisões, imagens e arquivos mantêm referências à sua origem.
+- **Controle de execução:** perguntar, revisão automática ou acesso total no compositor; perguntas críticas em etapas; aprovações vinculadas à solicitação; cancelamento e retomada.
+- **Missões e rotinas:** etapas, checkpoints, horários e quadro com arraste. Conclusão manual fica identificada; efeitos incertos após uma queda exigem revisão.
+- **Navegador e prévias locais:** navegador por conversa/projeto, acompanhamento visual, entrada manual e persistência opcional de sessão. Serviços supervisionados continuam entre passagens de agentes.
+- **Arquivos e conhecimento:** anexos, prints colados, imagens ampliáveis, visualização de texto/Markdown, versões por hash, fontes locais e memória revisável. O OKF é opcional.
+- **Equipe configurável:** modelos por provedor, skills, MCPs selecionados, instruções editáveis, avatares e ferramentas de navegador/computador local.
+- **Uso e distribuição:** cotas quando informadas pelo provedor, atualizações no aplicativo e instalador próprio Afluente.
 
-1. Abra a [última release](https://github.com/FP-SOLU/afluente-releases/releases/latest) e baixe o instalador Afluente para Windows x64.
-2. Siga a configuração inicial: identidade, espaço, provedores, primeiro agente e primeira conversa.
-3. Vincule a pasta do projeto, descreva o resultado esperado e escolha as permissões no compositor.
+## Começar
 
-O usuário final não precisa instalar Node ou Python separadamente. Cada provedor exige sua própria conta, acesso ou chave de API. Recursos como visão, geração de imagens e cotas dependem da conexão escolhida.
+1. Baixe o instalador no [canal oficial](https://github.com/FP-SOLU/afluente-releases/releases/latest).
+2. Informe seu nome e o espaço de trabalho; a foto é opcional.
+3. Conecte um ou mais provedores, crie seu primeiro agente e abra a primeira conversa.
+4. Vincule a pasta do projeto, envie o objetivo e defina as permissões no compositor.
 
-## Atualizações
+As CLIs mantêm a autenticação com seus fornecedores. Chaves de API são protegidas pelo Windows e não acompanham a exportação da equipe. Perfis e arquivos de trabalho ficam separados da instalação.
 
-O aplicativo avisa quando há uma versão nova. Você escolhe baixar e instalar quando as tarefas terminarem. A partir da 0.6.3, o atualizador reconfere a versão estável mais recente antes de instalar e invalida downloads intermediários desatualizados.
+Para um trabalho completo, explique o resultado esperado, as restrições e como verificar a entrega. Você pode corrigir a direção durante a tarefa sem reenviar todo o briefing. Consulte o [guia de condução](docs/conduzir-trabalho-no-afluente.md).
 
-Se um aplicativo antigo já tiver baixado um instalador anterior, feche e reabra para consultar o canal novamente. Instalações anteriores à configuração do canal podem precisar receber um instalador recente manualmente uma vez.
+## Novidades da 0.6.4
 
-## Dados e integridade
+Transporte Codex corrigido para mensagens grandes e perda de processo; falhas com causa permitida e persistente; uma continuação controlada para erros transitórios, respeitando permissões, cancelamento e efeitos sem confirmação. Mantidos o histórico consultável, checkpoints, proteção por progresso e atualização direta da 0.6.3. Veja as [notas da versão](docs/release-0.6.4.md).
 
-Conversas e perfis ficam separados da instalação. Este repositório contém somente distribuição, metadados e notas de versão. O código-fonte é privado; perfis e credenciais não fazem parte das releases. Os checksums publicados permitem conferir os arquivos.
+## Operação e limites
 
-O aplicativo executa localmente e precisa estar aberto, inclusive na bandeja, para trabalhar. Assinatura digital do instalador e validação no computador de destino são verificações separadas. Consulte as notas antes da adoção corporativa.
+O Afluente executa localmente: precisa estar aberto, inclusive na bandeja, para trabalhar. Desligar o computador encerra a execução. Navegador e compute são configuráveis; não há computador remoto incluído.
 
-Para relatar um problema à FP Solutions, informe versão, comportamento esperado e passos para reproduzir. Remova informações sensíveis de capturas e logs.
+Uma conexão configurada ou um catálogo de modelos não comprovam uma inferência bem-sucedida. Visão, geração de imagens, MCPs e cotas dependem do modelo, da conexão e das permissões. O aplicativo informa capacidades ausentes. Não copia automaticamente credenciais OAuth de ferramentas externas.
+
+Histórico e checkpoints não concedem novas permissões. Memória reutilizável exige revisão. Arquivos removidos ou fora do escopo não podem ser recuperados pela simples existência de uma referência. Rotinas e provedores corporativos precisam ser conferidos no computador de destino.
+
+## Desenvolvimento
+
+```powershell
+npm ci
+npm run typecheck
+node --test --test-concurrency=1 tests/*.test.cjs
+npm run build
+npm run desktop
+```
+
+`npm run dev` abre somente a prévia da interface. Testes Electron usam perfis descartáveis e distinguem transportes simulados de chamadas a provedores reais. Para empacotar no Windows, consulte o [runbook de release](docs/atualizacoes-e-release.md). O build do instalador requer Python/fontTools e as ferramentas WPF/.NET Framework; o aplicativo instalado não exige Node ou Python separados.
+
+## Atualizações e dados
+
+O aplicativo consulta o canal público, avisa e oferece download e instalação explícitos. A partir da 0.6.3, reconfere a última versão antes de instalar e recusa um download intermediário desatualizado. A instalação aguarda o fim das tarefas. Assinatura digital do instalador e validação em segundo computador permanecem etapas separadas.
+
+Código-fonte privado em `FP-SOLU/afluente`; distribuição pública em `FP-SOLU/afluente-releases`. Não publique perfis, credenciais ou capturas privadas. Faça backup antes de downgrade: versões antigas podem não aceitar dados mais novos.
+
+[Inventário funcional](INVENTARIO.md) · [Pesquisa de contexto](research/2026-11-06-continuidade-contexto-memoria.md)
 
 ---
 **Afluente — by FP Solutions**  
