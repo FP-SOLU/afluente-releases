@@ -4,6 +4,15 @@
 
 This record describes versioned changes. Release reports retain validation evidence and limits; a fix does not certify every provider or environment.
 
+## 0.6.5 — 2026-11-07
+
+- The updater checks local services before closing the app. Stale records, reused PIDs, unrelated port owners, and unavailable inspections show actionable guidance with the port and conversation environment panel.
+- The check does not stop processes or archive records automatically. Unresolved states require review and are not reported as confirmed cleanup.
+- Added preparation feedback and protection against concurrent installation attempts.
+- Shutdown waits for every resource and persistence operation even when another fails early, and concurrent quit events share one shutdown operation.
+- Local shutdown diagnostics retain only fixed stage names and states. Notifications distinguish preview, browser, persistence, and execution failures.
+- Added stale-record, identity, port, failed-flush, draft-preservation, and disposable-profile Electron/IPC update regressions.
+
 ## 0.6.4 — 2026-11-07
 
 - Replaced the aggregate 4 MiB Codex transport check with incremental per-message framing, a 32 MiB message limit, and intact UTF-8 handling for images and larger responses.

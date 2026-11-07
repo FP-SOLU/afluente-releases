@@ -4,6 +4,15 @@
 
 Este registro descreve mudanças entregues por versão. Notas de execução e limites de validação ficam nos relatórios da release; uma correção não implica certificação de todos os provedores ou ambientes.
 
+## 0.6.5 — 2026-11-07
+
+- O atualizador verifica os serviços antes de fechar o app. Registros antigos, PID reaproveitado, porta de terceiro ou inspeção indisponível geram orientação com a porta e o painel Ambiente da conversa.
+- A verificação não encerra processos nem arquiva registros automaticamente. Pendências exigem revisão; não são tratadas como limpeza confirmada.
+- Adicionados estado de preparação e bloqueio de tentativas simultâneas de instalação.
+- O fechamento aguarda todos os recursos e gravações, mesmo quando uma operação falha cedo. O ciclo de saída não é executado novamente por eventos concorrentes.
+- Diagnóstico local de fechamento registra somente etapas e estados fixos; as notificações distinguem prévias, navegador, salvamento e execução.
+- Adicionadas regressões de registro antigo, identidade, portas, gravação com falha, rascunho preservado e atualização pelo IPC/Electron em perfil descartável.
+
 ## 0.6.4 — 2026-11-07
 
 - Corrigido o limite agregado de 4 MiB no transporte Codex: imagens e mensagens grandes válidas agora são enquadradas individualmente, com teto de 32 MiB por mensagem e preservação de UTF-8.

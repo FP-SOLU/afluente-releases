@@ -1,7 +1,7 @@
 # Afluente
 
 **Um espaço para pessoas e agentes trabalharem juntos.**  
-Desenvolvido pela **FP Solutions** · Windows x64 · Versão 0.6.4
+Desenvolvido pela **FP Solutions** · Windows x64 · Versão 0.6.5
 
 [English (US)](README.en-US.md) · [Baixar a última versão](https://github.com/FP-SOLU/afluente-releases/releases/latest) · [Changelog](CHANGELOG.md)
 
@@ -30,9 +30,9 @@ As CLIs mantêm a autenticação com seus fornecedores. Chaves de API são prote
 
 Para um trabalho completo, explique o resultado esperado, as restrições e como verificar a entrega. Você pode corrigir a direção durante a tarefa sem reenviar todo o briefing. Consulte o [guia de condução](docs/conduzir-trabalho-no-afluente.md).
 
-## Novidades da 0.6.4
+## Novidades da 0.6.5
 
-Transporte Codex corrigido para mensagens grandes e perda de processo; falhas com causa permitida e persistente; uma continuação controlada para erros transitórios, respeitando permissões, cancelamento e efeitos sem confirmação. Mantidos o histórico consultável, checkpoints, proteção por progresso e atualização direta da 0.6.3. Veja as [notas da versão](docs/release-0.6.4.md).
+O atualizador verifica pendências das prévias antes de fechar o aplicativo, informa a porta e orienta a revisão do registro. O fechamento aguarda todos os recursos e gravações, com diagnóstico por etapa e proteção contra tentativas simultâneas. Mantidas as correções de transporte e recuperação da 0.6.4. Veja as [notas da versão](docs/release-0.6.5.md).
 
 ## Operação e limites
 

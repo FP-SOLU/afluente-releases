@@ -1,7 +1,7 @@
 # Afluente
 
 **A workspace for people and agents to work together.**  
-Built by **FP Solutions** · Windows x64 · Version 0.6.4
+Built by **FP Solutions** · Windows x64 · Version 0.6.5
 
 [Português (Brasil)](README.md) · [Download the latest release](https://github.com/FP-SOLU/afluente-releases/releases/latest) · [Changelog](CHANGELOG.en-US.md)
 
@@ -30,9 +30,9 @@ CLI authentication stays with the provider. API keys use Windows protection and 
 
 A useful request states the outcome, constraints, and acceptance criteria. Subsequent corrections belong in the same conversation; you do not need to repeat the entire brief at each handoff.
 
-## What's new in 0.6.4
+## What's new in 0.6.5
 
-Fixed large-message handling and process-loss detection in the Codex transport. Execution details now retain sanitized failure causes and recovery results. A confirmed transient error may trigger one controlled continuation, respecting permissions, cancellation, and uncertain tool effects. Searchable history, checkpoints, progress protection, and direct updates from 0.6.3 remain available. See the [release notes](docs/release-0.6.4.md).
+The updater checks local preview records before closing, identifies ports that need review, and keeps the app open when action is required. Shutdown waits for every resource and persistence operation, records stage-specific results, and prevents concurrent installation attempts. The 0.6.4 transport and recovery fixes remain included. See the [release notes](docs/release-0.6.5.md).
 
 ## Operation and limits
 
